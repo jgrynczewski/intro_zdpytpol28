@@ -1,5 +1,13 @@
+num = int(input("Podaj liczbę: "))
 i = 0
 
-while i < 10:
-    print(f"Liczba {i}")
+while True:
     i += 1
+
+    if i == num:
+        break
+
+    if i % 2 != 0:
+        continue
+
+    print(i)
