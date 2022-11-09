@@ -11,9 +11,15 @@ class Animal:
 
 
 class Cow(Animal):
+    species = 'mammal'
+
     def __init__(self, name, age):
         super().__init__(name, age)
         self.is_alive = True
+
+    @classmethod
+    def make_all_cow_fly(cls):
+        cls.species = 'bird'
 
     def speak(self):
         print("Muuuuu!")
@@ -24,7 +30,8 @@ class Cow(Animal):
         else:
             print("Niestety nie żyję. Chcesz poznać moje imię? To mnie wskrzesz!")
 
-    def get_area(self, r):
+    @staticmethod
+    def get_area(r):
         return 3.14 * r**2
 
     def get_older(self):
@@ -111,55 +118,66 @@ class Egg:
 
 ##############################################################
 
-c1 = Cow("Mućka", 5)
-c2 = Cow("Milka", 2)
+# c1 = Cow("Mućka", 5)
+# c2 = Cow("Milka", 2)
+#
+# c1.introduce()
+#
+# res = c1.get_area(10)
+# print(f"Krowa powiedziała, że pole koła to {res}")
+#
+# print(c1.age)
+# c1.get_older()
+# print(c1.age)
+# c1.get_younger()
+# print(c1.age)
+#
+# c1.introduce()
+# c1.kill()
+# c1.introduce()
+# c1.resurrect()
+# c1.introduce()
+#
+# c1.say_hello()
+#
+# k = Cat('Filemon', 1)
+# d = Dog('Burek', 6)
+#
+# k.speak()
+# d.speak()
+#
+# k.say_hello()
+#
+# print("######### Pies #############")
+# d.run()  # dziedziczy
+# print("######### Kot #############")
+# k.run()  # nadpisuje
+# print("######### Krowa #############")
+# c1.run()  # rozszerza
+#
+# h1 = House('Konwaliowa 32')
+#
+# f = Farmer(name="Donald", house=h1, child_name='Stasio')
+# f.introduce()
+# f.kill_cow(c2)
+#
+#
+# c = Chick('Nioska')
+# c.make_egg()
+# c.make_egg()
+# c.make_egg()
+#
+# print(c.eggs)
+#
+# print(f.count_eggs(c))
 
-c1.introduce()
 
-res = c1.get_area(10)
-print(f"Krowa powiedziała, że pole koła to {res}")
+print(Cow.species)
+c1 = Cow(name="Mućka", age=2)
+c2 = Cow(name='Milka', age=5)
 
-print(c1.age)
-c1.get_older()
-print(c1.age)
-c1.get_younger()
-print(c1.age)
-
-c1.introduce()
-c1.kill()
-c1.introduce()
-c1.resurrect()
-c1.introduce()
-
-c1.say_hello()
-
-k = Cat('Filemon', 1)
-d = Dog('Burek', 6)
-
-k.speak()
-d.speak()
-
-k.say_hello()
-
-print("######### Pies #############")
-d.run()  # dziedziczy
-print("######### Kot #############")
-k.run()  # nadpisuje
-print("######### Krowa #############")
-c1.run()  # rozszerza
-
-h1 = House('Konwaliowa 32')
-
-f = Farmer(name="Donald", house=h1, child_name='Stasio')
-f.introduce()
-f.kill_cow(c2)
-
-
-c = Chick('Nioska')
-c.make_egg()
-c.make_egg()
-c.make_egg()
-
-print(c.eggs)
-
-print(f.count_eggs(c))
+print(c1.species)
+print(c2.species)
+Cow.make_all_cow_fly()
+print(c1.species)
+print(c2.species)
